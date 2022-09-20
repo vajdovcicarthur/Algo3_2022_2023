@@ -55,7 +55,7 @@ void main()
 
 //QUESTION 4
 
-void retourne(int *e, int *r, int *t, int *max, int *min)
+/* void retourne(int *e, int *r, int *t, int *max, int *min)
 {
 * max = *e;
 * min = *e;
@@ -82,3 +82,5 @@ void main()
     retourne(&e, &r, &t, &max, &min);
     printf("\n Valeur la plus grande = %d \n Valeur la plus petite = %d",max,min);
 }
+
+*/
