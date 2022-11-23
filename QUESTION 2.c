@@ -1,13 +1,24 @@
-int somme(Tab t,int n)
+#include <stdio.h>
+#include <stdlib.h>
+#define N 10
+
+typedef int Tab[N];
+
+void remplirTableau(Tab t,int n)
 {
-    int res=0;
-    printf("Calcul de la somme :\n");
-if (n>0)
+    int i;
+    srand(time(NULL));
+    for (i=0;i<n;i++)
+    t[i]=rand()%n;
+}
+
+void affichage(int *t,int n,int i)
 {
-    printf("\t appel du calcul de la somme a partir de l'indice %d :\n",n-1);
-    res=t[n-1]+somme(t,n-1);
-    printf("\t addition avec t[%d]\n",n-1 );
+	if (i==n)
+    {
+    return;
+    }
+	printf("_%d",t[0]);
+    affichage(t+1,n,i+1);
 }
-    printf("\t Somme a partir de l'indice %d = %d\n\n",n-1,res);
-    return res;
-}
+

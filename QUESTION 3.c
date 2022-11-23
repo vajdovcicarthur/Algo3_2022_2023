@@ -1,12 +1,9 @@
-int nbElements(int *tab, int n, int v)
+void copie(Tab t,Tab t2,int n)
 {
-    if (n==0)
-        return 0;
-    else
+    int i=0;
+    for(i=0;i<n;i++)
     {
-        if (tab[n-1]<v)
-            return 1 + nbElements(tab,n-1,v);
-        else
-            return nbElements(tab,n-1,v);
+    t2[i]=t[i];
     }
+    printf("\n");
 }

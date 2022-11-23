@@ -1,13 +1,10 @@
-int rechercheValeur(int tab[],int n,int v)
+int triRapide(Tab t,int g,int d)
 {
-    if(n==0)
+	if (g<d)
     {
-        return -1;
-    }
-    if(tab[n-1]==v)
-    {
-        return n-1;
-    }
-    return rechercheValeur(tab,n-1,v);
+    int p=partitionTab(t,g,d);
+    triRapide(t,g,p-1);
+    triRapide(t,p+1,d);
+	}
 }
 
