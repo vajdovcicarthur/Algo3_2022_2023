@@ -1,13 +1,11 @@
-int ajouter(Client c, Tab t, int *nbClients){
+void ajouteClientFichier(char * fichierClient, Client c)
+{
+        FILE * f = fopen(fichierClient,"a");
+        if (!f) printf("Erreur à l'ouverture du fichier %s\n",fichierClient);
+        else
+        {
+            fprintf(f,"%d %s\n",c.id,c.nomClient);
+            fclose(f);
+        }
 
-    if(*nbClients==N)
-    {
-        return 0;
-    }
-    else
-    {
-        t[*nbClients]=c;
-        *nbClients+=1;
-        return 1;
-    }
 }

@@ -1,9 +1,23 @@
-void afficher(Tab t, int nbClients){
-
-    for(int i=0;i<nbClients;i++)
+int appartientClientFichier(char *fichierClient, char *nomClient)
+{
+    FILE *f = fopen(fichierClient, "r");
+    if(f==NULL)
     {
-        printf("\n L'id du client est: %d\n", t[i].idClient);
-        printf("\n Le nom du client est : %s\n", t[i].nomClient);
+        printf("Le fichier n'existe pas. \n");
+        return 0;
     }
+    char ligne[512];
+    int i=0;
+    while(fgets(ligne,512,f)!= NULL)
+    {
+        if(strstr(ligne,fichierClient)!=NULL)
+        {
+            printf("Le client %s est repertorie.\n",fichierClient);
+            fclose(f);
+            return 1;
+        }
+    }
+    printf("Client non repertorie. \n");
+    fclose(f);
+    return 0;
 }
-

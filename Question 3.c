@@ -1,17 +1,17 @@
-int saisieClients(Tab t, int p, int *nbClients){
-
-    if(*nbClients==N)
-    {
-        return 0;
-    }
-    else
-    {
-        for(int i=0; i<p; i++)
+void afficheClientsFichier(char * fichierClient)
+{
+        FILE * f = fopen(fichierClient,"r");
+        char ligne[512];
+        int nb_lignes=0;
+        if (!f) printf("Erreur a l'ouverture du fichier %s\n",fichierClient);
+        else
         {
-            Client c=t[*nbClients + i];
-            saisie(&c);
-            ajouter(c, t, nbClients);
+            while(fgets(ligne,512,f))
+            {
+                printf("%s",ligne);
+                nb_lignes++;
+            }
         }
-        return 1;
-    }
+        fclose(f);
 }
+

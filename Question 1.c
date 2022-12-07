@@ -1,23 +1,13 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
-#define N 10
 
-typedef char Chaine[15];
+#define MAX 10
 
-typedef struct _Client{
-    unsigned short idClient;
-    Chaine nomClient;
+typedef char Tab[MAX];
+
+typedef struct Client
+{
+    int id;
+    char nomClient[20];
 }Client;
-
-typedef Client Tab[N];
-
-void saisie(Client *c){
-
-    printf("Veuillez entrer l'id du client:");
-
-    scanf("%hd", &c->idClient);
-
-    printf("Veuillez entrer le nom du client:");
-
-    scanf("%s", c->nomClient);
-}

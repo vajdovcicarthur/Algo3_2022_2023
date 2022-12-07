@@ -1,11 +1,18 @@
-void modifierNom(Tab t, int nbClients, int i){
-    Chaine nouveauNom;
+int nombreClientsFichier(char * fichierClient)
+{
 
-    if(i<=nbClients)
-    {
-        printf("\n Veuillez entrer le nouveau nom du client: ", i);
-        scanf("%s", nouveauNom);
-        strcpy(t[i].nomClient, nouveauNom);
-    }
+    FILE * f = fopen(fichierClient,"r");
+        char ligne[512];
+        int nb_lignes=0;
+        if (!f) printf("Erreur a l'ouverture du fichier %s\n",fichierClient);
+        else
+        {
+            while(fgets(ligne,512,f))
+            {
+                nb_lignes++;
+            }
+        }
+        printf("Nombre de client : %d\n",nb_lignes);
+        fclose(f);
+
 }
-
